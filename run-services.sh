@@ -38,5 +38,5 @@ sed -i "s/^.*Timeout=3/Timeout=30/" /etc/zabbix/zabbix_agentd.conf
 trap "service zabbix-agent stop" SIGINT SIGTERM SIGHUP
 service zabbix-agent start ; rccheck
 
-tail -qF /var/log/zabbix/zabbix_agentd.log &
+tail -qF /var/log/zabbix-agent/zabbix_agentd.log &
 wait
