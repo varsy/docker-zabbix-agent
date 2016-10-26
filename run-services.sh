@@ -33,6 +33,7 @@ sed -i "s/^ServerActive=.*/ServerActive=${SERVER}/" /etc/zabbix/zabbix_agentd.co
 sed -i "s/^# HostMetadata\=.*/HostMetadata\=${METADATA}/" /etc/zabbix/zabbix_agentd.conf
 
 sed -i "s/^.*AllowRoot=0/AllowRoot=1/" /etc/zabbix/zabbix_agentd.conf
+sed -i "s/^.*Timeout=3/Timeout=30/" /etc/zabbix/zabbix_agentd.conf
 
 trap "service zabbix-agent stop" SIGINT SIGTERM SIGHUP
 service zabbix-agent start ; rccheck
